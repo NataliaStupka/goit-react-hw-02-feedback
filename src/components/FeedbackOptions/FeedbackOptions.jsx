@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './FeedbackOptions.css';
 
-const FeedbackOptions = ({onIncrementGood, onIncrementNeutral, onIncrementBad}) => (
+const FeedbackOptions = ({options, onIncrementGood, onIncrementNeutral, onIncrementBad}) => (
    
-            <div className='Feedback__container-buttons'>
+    <div className='Feedback__container-buttons'>
+        <p>Передала массив ключей  {options}</p>
                 <button onClick={onIncrementGood} className='Feedback__button' >Good</button>
                 <button onClick={onIncrementNeutral} className='Feedback__button'>Neutral</button>
                 <button onClick={onIncrementBad} className='Feedback__button'>Bad</button>
@@ -12,3 +13,7 @@ const FeedbackOptions = ({onIncrementGood, onIncrementNeutral, onIncrementBad}) 
     );
 
 export default FeedbackOptions;
+
+//убрать p
+//передать все двумя пропсами
+//прописать типы пропсов

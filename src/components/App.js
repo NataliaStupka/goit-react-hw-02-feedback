@@ -50,6 +50,9 @@ class App extends Component {
       <section>
         <SectionTitle title="Please leave feedback">
           <FeedbackOptions
+            options={Object.keys(this.state)}
+            // onLeaveFeedback={}
+
             onIncrementGood={this.handleIncrementGood}
             onIncrementNeutral={this.handleIncrementNeutral}
             onIncrementBad={this.handleIncrementBad}
