@@ -11,29 +11,12 @@ class App extends Component {
     bad: 0,
   };
 
-  handleIncrementGood = () => {
+  handleIncrement = key => {
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
+        [key]: prevState[key] + 1,
       };
     });
-    //  console.log('нажимаю на кнопку  good');
-  };
-  handleIncrementNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-    //  console.log('нажимаю на кнопку  neutral');
-  };
-  handleIncrementBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-      };
-    });
-    //  console.log('нажимаю на кнопку bad');
   };
 
   render() {
@@ -51,23 +34,22 @@ class App extends Component {
         <SectionTitle title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
-            // onLeaveFeedback={}
-
-            onIncrementGood={this.handleIncrementGood}
-            onIncrementNeutral={this.handleIncrementNeutral}
-            onIncrementBad={this.handleIncrementBad}
+            onLeaveFeedback={this.handleIncrement}
           />
         </SectionTitle>
 
         <SectionTitle title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={countTotalFeedback}
-            positivePercentage={countPositiveFeedbackPercentage}
-          />
-          <Notification message="There is no feedback" />
+          {countTotalFeedback > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={countTotalFeedback}
+              positivePercentage={countPositiveFeedbackPercentage}
+            />
+          ) : (
+            <Notification message="No feedback given" />
+          )}
         </SectionTitle>
       </section>
     );

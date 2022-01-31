@@ -7,7 +7,7 @@
 5. npm install --save-dev prettier eslint (инициализируем линст, и хаски)
    выполняем команду npx mrm@2 lint-staged
 6. Стилизация: styled-components npm install --save styled-components
-7. доавим папку 7.1) .prettierrc.json  
+7. добавим папку 7.1) .prettierrc.json  
     { "printWidth": 80, "tabWidth": 2, "useTabs": false, "semi": true, "singleQuote":
    true, "trailingComma": "es5", "bracketSpacing": true, "jsxBracketSameLine": false,
    "arrowParens": "avoid", "proseWrap": "always" }

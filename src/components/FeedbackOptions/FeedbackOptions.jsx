@@ -1,19 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from "prop-types";
 import './FeedbackOptions.css';
 
-const FeedbackOptions = ({options, onIncrementGood, onIncrementNeutral, onIncrementBad}) => (
+//передаем массив ключей {options}-это {Object.keys(this.state)} с App и функцию
+const FeedbackOptions = ({options, onLeaveFeedback}) => (
    
     <div className='Feedback__container-buttons'>
-        <p>Передала массив ключей  {options}</p>
-                <button onClick={onIncrementGood} className='Feedback__button' >Good</button>
-                <button onClick={onIncrementNeutral} className='Feedback__button'>Neutral</button>
-                <button onClick={onIncrementBad} className='Feedback__button'>Bad</button>
-            </div>     
-   
+       {options.map(key => (
+              <button
+                key={key}
+                type="button"
+                onClick={()=> onLeaveFeedback(key)}
+           >
+               {key}
+           </button>
+            ))};
+
+    </div>  
+    
     );
 
 export default FeedbackOptions;
 
-//убрать p
-//передать все двумя пропсами
-//прописать типы пропсов
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
