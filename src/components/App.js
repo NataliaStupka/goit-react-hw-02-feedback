@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GlobalStyle } from '../helpers/GlobalStyle';
 import SectionTitle from './SectionTitle';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
@@ -31,6 +32,7 @@ class App extends Component {
 
     return (
       <section>
+        <GlobalStyle />
         <SectionTitle title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
