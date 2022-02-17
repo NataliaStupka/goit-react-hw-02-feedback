@@ -30,12 +30,14 @@ class App extends Component {
       100
     ).toFixed(0);
 
+    const options = Object.keys(this.state);
+
     return (
       <section>
         <GlobalStyle />
         <SectionTitle title="Please leave feedback">
           <FeedbackOptions
-            options={Object.keys(this.state)}
+            options={options}
             onLeaveFeedback={this.handleIncrement}
           />
         </SectionTitle>
